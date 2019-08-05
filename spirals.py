@@ -5,7 +5,7 @@ import math
 def draw_rect(x, y, width, height, angle, opacity = 0.5, color='black'):
     return f'<rect x="{x}" y="{y}" width="{width}" height="{height}" fill="{color}" stroke-width="0.5" stroke="{color}" opacity="{opacity}" transform="rotate{angle, x, y}"/>'
 
-def spiral(width, height, r_width, r_height, r_angle, spiral_rotation, interval):
+def spiral(width, height, r_width, r_height, r_angle, spiral_rotation, interval, b = 0.2):
 
 # Defines inner SVG code for rectagles drawn at points around a logarithmic spiral
 
@@ -16,7 +16,6 @@ def spiral(width, height, r_width, r_height, r_angle, spiral_rotation, interval)
     y_list = np.array([])
 
     a = 0.2
-    b = 0.2
 
     angles = np.array([i*i for i in np.arange(rotation, 1, -interval)])
     angles = np.interp(angles, (angles.min(), angles.max()), (rotation,0))
@@ -40,7 +39,7 @@ def spiral(width, height, r_width, r_height, r_angle, spiral_rotation, interval)
         print(a)
         print(draw_rect(x_list[i], y_list[i], r_width, r_height, a, color=colors[i%len(colors)]))
 
-def multiple_spirals_output(no_spirals, width, height, r_width, r_height, r_angle, spiral_rotation, interval):
+def multiple_spirals_output(no_spirals, width, height, r_width, r_height, r_angle, spiral_rotation, interval, b=0.1):
 
 #Produces full SVG text and allows for multiple spirals to be drawn
 
@@ -48,11 +47,11 @@ def multiple_spirals_output(no_spirals, width, height, r_width, r_height, r_angl
     print(header)
 
     for i in range(0, no_spirals):
-        spiral(width, height, r_width, r_height, r_angle, spiral_rotation - i*10, max(interval - i,1))
+        spiral(width, height, r_width, r_height, r_angle, spiral_rotation, max(interval - i,1), b = 0.1 + i*0.1)
 
     footer = f'</svg>'
     print(footer)
 
 if __name__ == "__main__":
 
-    multiple_spirals(2, 500, 500, 5, 40, 45, 600, 3)
+    multiple_spirals_output(2, 500, 500, 5, 40, 45, 600, 3)
