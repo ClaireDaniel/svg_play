@@ -1,8 +1,8 @@
 # svg_play
 ## Making pretty generated SVGs in Python
 
-I am giving a talk at PyconAU 2019 showng how to build SVG and using generative art as a motivator. 
+I am playing with Amanda Hogan's (hodgesonline) python code for generative art using SVG as presented at PyCon Australia 2019.
 
-This is where I'm puytting all my code so people can have a look, have a play and maybe even give advice (particularly on dumb if statements when I should be using clever maths).
+https://www.youtube.com/watch?v=Y-hQn4KQA70&feature=youtu.be
 
-Everything is available to steal and play with . **Please share alike**.
+As per her original instructions everything is available to steal and play with . **Please share alike**.
