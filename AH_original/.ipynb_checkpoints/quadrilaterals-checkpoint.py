@@ -36,7 +36,7 @@ def draw_quad(quad):
             L{quad.xBR} {quad.yBR} \
             L{quad.xBL} {quad.yBL}Z" stroke="black" fill="{quad.col}"/>'
 
-def make_quadrilaterals(num, imageSize, colors = ('#ac4a8d', '#9bb6b5', '#d1ecf4', '#698c8c', '#cc2436')):
+def make_quadrilaterals(num, imageSize, colors = ('#044BD9', '#0583F2', '#05AFF2', '#05DBF2', '#fa7f70')):
     header = f'<svg viewBox="0 0 {imageSize} {imageSize}" xmlns="http://www.w3.org/2000/svg">\n'
     grid = {}
     quad_size = imageSize/num
@@ -50,10 +50,10 @@ def make_quadrilaterals(num, imageSize, colors = ('#ac4a8d', '#9bb6b5', '#d1ecf4
             grid[(r, c)] = q
 
     #shifting stuff
-    for r in range(2, num):
-        for c in range(2, num):
-            diffx = random.randint(0, quad_size // 5) - quad_size // 3                             
-            diffy = random.randint(0, quad_size // 5) - quad_size // 3
+    for r in range(1, num):
+        for c in range(1, num):
+            diffx = random.randint(0, quad_size // 2) - quad_size // 4                             
+            diffy = random.randint(0, quad_size // 2) - quad_size // 4
             q = grid[(r, c)]
             qUpLeft = grid[(r - 1, c - 1)]
             qUp = grid[(r - 1, c)]
